@@ -1,198 +1,215 @@
-# Peddi-Dose: Pediatric Dose Calculator (โปรแกรมคำนวณขนาดยาเด็ก)
+# Peddi-Dose
+
+> Pediatric dose calculator for healthcare professionals — fast, accurate, mobile-first.
 
 <p align="center">
-  <strong>เครื่องมือคำนวณขนาดยาในเด็กสำหรับบุคลากรทางการแพทย์</strong>
-  <br />
-  <a href="https://pedi-dose-c9cec.web.app/"><strong>ลองใช้งาน (Live Demo) »</strong></a>
-</p>
-
-<p align="center">
-    <a href="https://github.com/suradet-ps/peddi-dose/blob/main/LICENSE">
-        <img src="https://img.shields.io/github/license/suradet-ps/peddi-dose?style=for-the-badge" alt="License">
-    </a>
-    <a href="https://github.com/suradet-ps/peddi-dose/issues">
-        <img src="https://img.shields.io/github/issues/suradet-ps/peddi-dose?style=for-the-badge" alt="Issues">
-    </a>
-    <img src="https://img.shields.io/github/stars/suradet-ps/peddi-dose?style=for-the-badge" alt="Stars">
-    <img src="https://img.shields.io/badge/package_manager-bun-f9f1e1?style=for-the-badge&logo=bun" alt="Bun">
+  <a href="https://github.com/suradet-ps/peddi-dose/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/suradet-ps/peddi-dose?style=for-the-badge" alt="License">
+  </a>
+  <a href="https://github.com/suradet-ps/peddi-dose/issues">
+    <img src="https://img.shields.io/github/issues/suradet-ps/peddi-dose?style=for-the-badge" alt="Issues">
+  </a>
+  <img src="https://img.shields.io/github/stars/suradet-ps/peddi-dose?style=for-the-badge" alt="Stars">
+  <img src="https://img.shields.io/badge/TypeScript-6+-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript">
+  <img src="https://img.shields.io/badge/package_manager-bun-f9f1e1?style=for-the-badge&logo=bun" alt="Bun">
 </p>
 
 ---
 
-**Peddi-Dose** เป็นเว็บแอปพลิเคชันที่ออกแบบมาเพื่อช่วยเภสัชกร, แพทย์, และบุคลากรทางการแพทย์ในการคำนวณขนาดยาสำหรับผู้ป่วยเด็กอย่างรวดเร็วและแม่นยำ โดยอ้างอิงจากน้ำหนักตัวของผู้ป่วย โปรแกรมจะแสดงผลลัพธ์ทั้งช่วงขนาดยา (Dose range) ในหน่วยมิลลิลิตร (ml) และมิลลิกรัมต่อครั้ง (mg/dose) พร้อมคำแนะนำการบริหารยา
+**Peddi-Dose** is a progressive web application (PWA) that helps pharmacists, doctors, and healthcare professionals calculate pediatric liquid medication dosages quickly and accurately. It computes dose ranges in both milliliters (ml) and milligrams per dose (mg/dose) based on patient weight, with administration guidance for every drug.
 
-<details>
-<summary><strong>English Description</strong></summary>
+---
 
-**Peddi-Dose** is a mobile-first web application designed to assist pharmacists, doctors, and healthcare professionals in quickly and accurately calculating drug dosages for pediatric patients based on their body weight. The application provides real-time results in both milliliters (ml) and milligrams per dose (mg/dose), along with administration notes for each drug.
+## Features
 
-</details>
+- **Real-time calculation** — results update instantly as you type or select a drug; no submit button required.
+- **Dual-unit display** — primary result in **ml** with **mg/dose** secondary value.
+- **Manual dose mode** — override the standard range by specifying a custom mg/kg/dose value.
+- **Mobile-first UI** — optimized for on-the-go clinical use, installable as a PWA.
+- **Offline capable** — fully functional without a network connection after first visit.
+- **Persistent selection** — last-used drug is remembered via `localStorage`.
+- **Dark mode** — automatically follows the system `prefers-color-scheme` setting.
+- **Accessible** — keyboard navigable, screen-reader friendly, visible focus indicators.
+- **10 pre-loaded drugs** — covers common pediatric antibiotics, antipyretics, antihistamines, and more.
 
-## 🚀 ลิงก์สำหรับใช้งาน (Live Demo)
+---
 
-แอปถูก deploy บน **Vercel** — ลิงก์จะถูกสร้างอัตโนมัติหลัง push ไปยัง repository:
+## Tech Stack
 
-### **https://peddi-dose.vercel.app/** *(อัปเดตหลัง deploy ครั้งแรก)*
+| Layer | Technology |
+|-------|-----------|
+| **Language** | [TypeScript 6](https://www.typescriptlang.org/) (strict mode) |
+| **Framework** | [React 19](https://react.dev/) |
+| **Build tool** | [Vite 8](https://vite.dev/) + [SWC](https://swc.rs/) |
+| **PWA** | [vite-plugin-pwa](https://vite-pwa-org.netlify.app/) (Workbox) |
+| **Linting** | [ESLint 10](https://eslint.org/) (flat config, type-aware) |
+| **Formatting** | [Prettier](https://prettier.io/) |
+| **Package manager** | [Bun](https://bun.sh/) |
 
-## ✨ คุณสมบัติหลัก (Key Features)
+---
 
--   **คำนวณแบบ Real-time:** ผลลัพธ์อัปเดตทันทีที่กรอกน้ำหนักหรือเปลี่ยนชนิดยา — ไม่ต้องกดปุ่ม
--   **แสดงผล 2 หน่วย:** ค่าหลักเป็น **ml** พร้อม **mg/dose** เป็นค่ารอง
--   **โหมด Manual Dose:** ระบุขนาดยา (mg/kg/dose) เองเพื่อความยืดหยุ่นทางคลินิก
--   **Mobile-First:** UI ออกแบบให้ใช้งานบนมือถือเป็นหลัก เปิดมาเจอเครื่องคำนวณทันที
--   **PWA ติดตั้งได้:** ใช้งานออฟไลน์ ติดตั้งเป็นแอปบนมือถือได้
--   **Persist Last Drug:** จำยาที่ใช้ล่าสุดไว้ใน localStorage
--   **Dark Mode (Auto):** ตามการตั้งค่าระบบปฏิบัติการ (prefers-color-scheme)
--   **Accessibility:** รองรับ keyboard navigation, screen reader, focus visible
+## Getting Started
 
-## 🎨 Design System
+### Prerequisites
 
-UI ได้รับแรงบันดาลใจจาก **Tesla Design Language** — minimal, monochrome + Electric Blue accent, ไม่มีเงา/gradient, 4px border-radius, 0.33s transitions
-ดูรายละเอียดทั้งหมดได้ใน [DESIGN.md](./DESIGN.md)
+- [Bun](https://bun.sh/) v1.1+ (or npm as a fallback)
 
-## 📋 วิธีใช้งาน (How to Use)
+### Install
 
-1.  **ไปที่หน้าเว็บ:** https://pedi-dose-c9cec.web.app/
-2.  **เลือกยา:** เลือกจาก dropdown (มี 10 รายการยาสามัญ)
-3.  **กรอกน้ำหนัก:** ใส่น้ำหนักของผู้ป่วย (kg)
-4.  **ดูผลลัพธ์:** ผลลัพธ์จะแสดงทันที — ค่าหลักเป็น **ml**, ค่ารองเป็น **mg/dose**, พร้อมคำแนะนำ
-5.  **โหมด Manual (ถ้าต้องการ):** กด "ระบุเอง" เพื่อระบุ mg/kg/dose เอง
-6.  **อ่านคำแนะนำ:** ดูข้อมูลการบริหารยา (ก่อน/หลังอาหาร, ความถี่) ใต้ผลลัพธ์
+```bash
+git clone https://github.com/suradet-ps/peddi-dose.git
+cd peddi-dose
+bun install
+```
 
-## 💊 รายการยาที่มีในโปรแกรม (Available Drugs)
+### Development
 
-10 รายการ ครอบคลุมยาที่ใช้บ่อยในเด็ก:
+```bash
+bun run dev
+```
 
-| ยา | ความเข้มข้น | หมวดหมู่ |
-|---|---|---|
-| Amoxycillin | 250mg/5ml | ยาปฏิชีวนะ |
-| Augmentin | 228.5mg/5ml | ยาปฏิชีวนะ |
-| Bactrim | 40mg/5ml | ยาปฏิชีวนะ |
-| CPM (Chlorpheniramine) | 2mg/5ml | ยาแก้แพ้ |
-| Dicloxacillin | 62.5mg/5ml | ยาปฏิชีวนะ |
-| Domperidone | 5mg/5ml | ยาแก้คลื่นไส้ |
-| Erythromycin | 125mg/5ml | ยาปฏิชีวนะ |
-| Guafenesine | 100mg/5ml | ยาละลายเสมหะ |
-| Ibuprofen | 100mg/5ml | ยาลดไข้ |
-| Paracetamol | 120mg/5ml | ยาลดไข้ |
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-*หมายเหตุ: รายการยาและความเข้มข้นอาจมีการเปลี่ยนแปลง โปรดตรวจสอบจากหน้าเว็บโดยตรง*
+### Production Build
 
-## ⚠️ คำเตือนที่สำคัญ (Important Disclaimer)
+```bash
+bun run build      # type-checks + Vite build
+bun run preview    # preview the production bundle
+```
 
-**โปรแกรมนี้เป็นเพียงเครื่องมือช่วยคำนวณเบื้องต้นสำหรับบุคลากรทางการแพทย์เท่านั้น**
+### Quality Checks
 
--   ข้อมูลที่ได้จากการคำนวณ **ไม่สามารถ** ใช้แทนวิจารณญาณทางการแพทย์ (Clinical Judgment) ได้
--   ผู้ใช้งานต้องมีความรู้ความเข้าใจเกี่ยวกับยาแต่ละชนิด และต้องทวนสอบความถูกต้องของขนาดยาให้เหมาะสมกับผู้ป่วยแต่ละรายเสมอ โดยพิจารณาจากสภาวะของผู้ป่วย, การทำงานของตับ/ไต, และข้อบ่งใช้อื่นๆ
--   **ห้าม** ผู้ป่วยหรือบุคคลทั่วไปใช้โปรแกรมนี้เพื่อปรับขนาดยาด้วยตนเองโดยเด็ดขาด
--   ผู้พัฒนาไม่รับผิดชอบต่อความเสียหายใดๆ ที่อาจเกิดขึ้นจากการใช้โปรแกรมนี้
+```bash
+bun run typecheck  # tsc --noEmit (strict)
+bun run lint       # ESLint with type-aware rules
+bun run format     # Prettier
+```
 
-## 👨‍💻 สำหรับนักพัฒนา (For Developers)
+---
 
-### เทคโนโลยี (Tech Stack)
-
--   **Package Manager:** [Bun](https://bun.sh/) ⚡
--   **Framework:** React 19
--   **Build Tool:** Vite 7 (with SWC)
--   **PWA:** vite-plugin-pwa
--   **Linting:** ESLint 9 (flat config) + Prettier
--   **Design System:** Custom CSS tokens (see [DESIGN.md](./DESIGN.md))
-
-### การติดตั้งและรันโปรเจกต์ในเครื่อง (Local Setup)
-
-ต้องติดตั้ง [Bun](https://bun.sh/) ก่อน (v1.1+)
-
-1.  **Clone repository:**
-    ```bash
-    git clone https://github.com/suradet-ps/peddi-dose.git
-    cd peddi-dose
-    ```
-
-2.  **ติดตั้ง dependencies:**
-    ```bash
-    bun install
-    ```
-
-3.  **รัน dev server:**
-    ```bash
-    bun run dev
-    ```
-    เปิดเบราว์เซอร์ที่ http://localhost:5173
-
-4.  **Build production:**
-    ```bash
-    bun run build
-    ```
-    ไฟล์จะถูก build ไปที่ `dist/`
-
-5.  **Preview production build:**
-    ```bash
-    bun run preview
-    ```
-
-6.  **Lint code:**
-    ```bash
-    bun run lint
-    ```
-
-7.  **Format code:**
-    ```bash
-    bun run format
-    ```
-
-### โครงสร้างโปรเจกต์ (Project Structure)
+## Project Structure
 
 ```
 peddi-dose/
-├── public/                       # Static assets (icons)
+├── public/                        # Static assets (icons)
 ├── src/
-│   ├── components/               # React components
-│   │   ├── Header.jsx            # Minimal brand header
-│   │   ├── Calculator.jsx        # Single-screen calculator
-│   │   ├── ResultCard.jsx        # ml + mg/dose + notes
-│   │   └── Footer.jsx            # Hospital + disclaimer
+│   ├── components/                # React components
+│   │   ├── Calculator.tsx         # Main calculator form
+│   │   ├── ResultCard.tsx         # Dose result display
+│   │   ├── ErrorBoundary.tsx      # Class-based error boundary
+│   │   ├── Header.tsx             # App header
+│   │   └── Footer.tsx             # Attribution footer
 │   ├── data/
-│   │   └── drugData.js           # Drug database
+│   │   └── drugData.ts            # Drug database (immutable typed)
 │   ├── hooks/
-│   │   └── useDoseCalculator.js  # State + real-time calc
+│   │   ├── useDoseCalculator.ts   # Root hook: orchestrates state
+│   │   ├── useDrugSelector.ts     # Drug selection + localStorage
+│   │   └── useManualDose.ts       # Manual mode state
+│   ├── types/
+│   │   ├── drug.ts                # Drug, DrugCategory, DrugTiming
+│   │   ├── calculation.ts         # DoseResult (discriminated union)
+│   │   ├── components.ts          # Component prop interfaces
+│   │   └── index.ts               # Barrel exports
 │   ├── utils/
-│   │   └── doseMath.js           # Pure dose functions
+│   │   └── doseMath.ts            # Pure dose calculation functions
 │   ├── styles/
-│   │   ├── tokens.css            # Design tokens
-│   │   ├── base.css              # Reset + globals
-│   │   └── app.css               # Component styles
-│   ├── App.jsx                   # Top-level composition
-│   └── main.jsx                  # React entry
-├── DESIGN.md                     # Design system documentation
-├── eslint.config.js              # ESLint flat config
-├── vite.config.js                # Vite + PWA config
-├── .prettierrc.json              # Prettier config
-├── package.json                  # Project metadata
-└── bun.lock                      # Bun lockfile
+│   │   ├── tokens.css             # Design tokens (Tesla-inspired)
+│   │   ├── base.css               # CSS reset + globals
+│   │   └── app.css                # Component styles
+│   ├── App.tsx                    # Root composition
+│   ├── main.tsx                   # Entry point
+│   └── vite-env.d.ts              # Vite client type declarations
+├── DESIGN.md                      # Design system documentation
+├── eslint.config.js               # ESLint flat config (type-aware)
+├── tsconfig.json                  # Strict TypeScript configuration
+├── vite.config.ts                 # Vite + PWA configuration
+├── .prettierrc.json               # Prettier configuration
+├── vercel.json                    # Vercel deployment configuration
+└── package.json                   # Project metadata
 ```
 
-### การมีส่วนร่วม (Contributing)
+---
 
-1.  **Fork** the repository
-2.  สร้าง Branch ใหม่สำหรับฟีเจอร์ของคุณ (`git checkout -b feature/AmazingFeature`)
-3.  Commit การเปลี่ยนแปลงของคุณ (`git commit -m 'Add some AmazingFeature'`)
-4.  Push ไปยัง Branch (`git push origin feature/AmazingFeature`)
-5.  เปิด **Pull Request**
+## Available Drugs
 
-### การ Deploy (Deployment)
+| Drug | Concentration | Category |
+|------|--------------|----------|
+| Amoxycillin | 250 mg / 5 ml | Antibiotic |
+| Augmentin (Co-amoxiclav) | 228.5 mg / 5 ml | Antibiotic |
+| Bactrim (Co-trimoxazole) | 40 mg / 5 ml | Antibiotic |
+| CPM (Chlorpheniramine) | 2 mg / 5 ml | Antihistamine |
+| Dicloxacillin | 62.5 mg / 5 ml | Antibiotic |
+| Domperidone | 5 mg / 5 ml | Antiemetic |
+| Erythromycin | 125 mg / 5 ml | Antibiotic |
+| Guafenesine (Guaifenesin) | 100 mg / 5 ml | Mucolytic |
+| Ibuprofen | 100 mg / 5 ml | Antipyretic |
+| Paracetamol | 120 mg / 5 ml | Antipyretic |
 
-โปรแกรมนี้ deploy ผ่าน **Vercel** โดย auto-detect Vite (build command: `bun run build`, output: `dist`)
+> Drug data is maintained in [`src/data/drugData.ts`](src/data/drugData.ts) and uses `as const satisfies readonly Drug[]` for full type safety.
 
-**วิธีที่ 1 — Vercel GitHub Integration (แนะนำ):**
-1. ไปที่ [vercel.com](https://vercel.com) → New Project → Import repo นี้
-2. Vercel จะ auto-detect Vite framework
-3. กด Deploy — ทุก push ที่ `main` จะ deploy อัตโนมัติ
+---
 
-**วิธีที่ 2 — Vercel CLI:**
+## TypeScript Architecture
+
+This project prioritizes strict type safety:
+
+- **`strict: true`** — all strict checks enabled (noImplicitAny, strictNullChecks, etc.)
+- **`noUncheckedIndexedAccess`** — every array/record access is safe by default
+- **`exactOptionalPropertyTypes`** — no accidental `undefined` assignments
+- **`verbatimModuleSyntax`** — enforces `import type` for type-only imports
+- **Discriminated unions** — `DoseResult` is `AutoDoseResult | ManualDoseResult` (no optional `mode` fields)
+- **Zero `any`** — no type assertions, no `@ts-ignore`, no non-null assertions
+- **Explicit hook return types** — every custom hook declares its own result interface
+
+---
+
+## Deployment
+
+The app is deployed via **Vercel** with automatic deploys on every push to `main`.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsuradet-ps%2Fpeddi-dose)
+
+### Manual Vercel CLI
+
 ```bash
 npm i -g vercel
 bun run build
 vercel --prod
 ```
 
-Config อยู่ใน `vercel.json` (SPA rewrite + PWA service-worker headers)
+Configuration lives in `vercel.json` (SPA rewrite + PWA service-worker headers).
+
+---
+
+## Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch: `git checkout -b feat/my-feature`
+3. Commit your changes using [conventional commits](https://www.conventionalcommits.org/)
+4. Push to your branch: `git push origin feat/my-feature`
+5. Open a pull request
+
+### Commit Convention
+
+This project follows [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+feat: add new drug calculation mode
+fix: correct rounding for low-weight patients
+refactor: extract dose formatting utilities
+chore(deps): update typescript to v6
+```
+
+---
+
+## License
+
+Distributed under the MIT License. See [LICENSE](./LICENSE) for more information.
+
+---
+
+## Disclaimer
+
+**This software is a clinical decision-support tool intended for use by licensed healthcare professionals only.** It does not replace independent clinical judgment. Users must verify all calculated dosages against the patient's medical history, organ function, and official prescribing information. The authors assume no liability for damages arising from the use of this software.
