@@ -51,8 +51,8 @@ export const useDoseCalculator = () => {
       mode: 'auto',
       min,
       max,
-      totalMinMg: totalMinMg.toFixed(1),
-      totalMaxMg: totalMaxMg.toFixed(1),
+      totalMinMg,
+      totalMaxMg,
       notes: selectedDrug.notes,
     };
   }, [weight, selectedDrug, isManualMode, manualDose]);

@@ -43,6 +43,8 @@ export const formatDoseRange = (min, max) => {
 
 /** Format an mg pair for display: "100 mg/dose" or "100 - 167 mg/dose". */
 export const formatMgRange = (min, max) => {
-  if (parseFloat(min) === parseFloat(max)) return `${min} mg/dose`;
-  return `${min} - ${max} mg/dose`;
+  const a = min.toFixed(1);
+  const b = max.toFixed(1);
+  if (a === b) return `${a} mg/dose`;
+  return `${a} - ${b} mg/dose`;
 };
