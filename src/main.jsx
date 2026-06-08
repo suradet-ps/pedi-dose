@@ -5,10 +5,13 @@ import './styles/tokens.css';
 import './styles/base.css';
 import './styles/app.css';
 
+import ErrorBoundary from './components/ErrorBoundary';
 import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </StrictMode>,
 );
