@@ -1,6 +1,4 @@
-// src/data/drugData.js
-// Drug database for pediatric dose calculator.
-// Each entry includes clinical metadata for the redesigned UI.
+import type { Drug } from '@/types/drug';
 
 export const drugList = [
   {
@@ -11,8 +9,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 10,
     maxDosePerKg: 16.7,
-    category: 'Antibiotic',
-    timing: 'after',
+    category: 'Antibiotic' as const,
+    timing: 'after' as const,
     timesPerDay: 3,
     maxDailyDose: '40 mg/kg/day',
     notes: 'รับประทานหลังอาหาร วันละ 3 ครั้ง (กินติดต่อกันจนยาหมด)',
@@ -25,8 +23,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 12.5,
     maxDosePerKg: 22.5,
-    category: 'Antibiotic',
-    timing: 'after',
+    category: 'Antibiotic' as const,
+    timing: 'after' as const,
     timesPerDay: 2,
     maxDailyDose: '45 mg/kg/day',
     notes: 'รับประทานหลังอาหาร วันละ 2 ครั้ง (กินติดต่อกันจนยาหมด)',
@@ -39,8 +37,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 3,
     maxDosePerKg: 6,
-    category: 'Antibiotic',
-    timing: 'after',
+    category: 'Antibiotic' as const,
+    timing: 'after' as const,
     timesPerDay: 2,
     maxDailyDose: '12 mg TMP/kg/day',
     notes: 'รับประทานหลังอาหาร วันละ 2 ครั้ง (กินติดต่อกันจนยาหมด)',
@@ -53,8 +51,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 0.12,
     maxDosePerKg: 0.12,
-    category: 'Antihistamine',
-    timing: 'after',
+    category: 'Antihistamine' as const,
+    timing: 'after' as const,
     timesPerDay: 3,
     maxDailyDose: '0.36 mg/kg/day',
     notes: 'รับประทานหลังอาหาร วันละ 3 ครั้ง (กินติดต่อกันจนยาหมด)',
@@ -67,8 +65,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 3.125,
     maxDosePerKg: 6.25,
-    category: 'Antibiotic',
-    timing: 'before',
+    category: 'Antibiotic' as const,
+    timing: 'before' as const,
     timesPerDay: 4,
     maxDailyDose: '25 mg/kg/day',
     notes: 'รับประทานก่อนอาหาร วันละ 4 ครั้ง (กินติดต่อกันจนยาหมด)',
@@ -81,8 +79,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 0.2,
     maxDosePerKg: 0.4,
-    category: 'Antiemetic',
-    timing: 'before',
+    category: 'Antiemetic' as const,
+    timing: 'before' as const,
     timesPerDay: 3,
     maxDailyDose: '1.2 mg/kg/day',
     notes: 'รับประทานก่อนอาหาร วันละ 3 ครั้ง',
@@ -95,8 +93,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 7.5,
     maxDosePerKg: 12.5,
-    category: 'Antibiotic',
-    timing: 'before',
+    category: 'Antibiotic' as const,
+    timing: 'before' as const,
     timesPerDay: 4,
     maxDailyDose: '50 mg/kg/day',
     notes: 'รับประทานก่อนอาหาร วันละ 4 ครั้ง (กินติดต่อกันจนยาหมด)',
@@ -109,8 +107,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 2.5,
     maxDosePerKg: 5,
-    category: 'Mucolytic',
-    timing: 'after',
+    category: 'Mucolytic' as const,
+    timing: 'after' as const,
     timesPerDay: 3,
     maxDailyDose: '15 mg/kg/day',
     notes: 'รับประทานหลังอาหาร วันละ 3 ครั้ง',
@@ -123,8 +121,8 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 5,
     maxDosePerKg: 10,
-    category: 'Antipyretic',
-    timing: 'after',
+    category: 'Antipyretic' as const,
+    timing: 'after' as const,
     timesPerDay: 3,
     maxDailyDose: '30 mg/kg/day',
     notes: 'รับประทานหลังอาหาร วันละ 3 ครั้ง (กินยาหลังอาหารทันที)',
@@ -137,17 +135,22 @@ export const drugList = [
     volume: 5,
     minDosePerKg: 10,
     maxDosePerKg: 15,
-    category: 'Antipyretic',
-    timing: 'any',
+    category: 'Antipyretic' as const,
+    timing: 'any' as const,
     timesPerDay: 4,
     maxDailyDose: '60 mg/kg/day',
     notes: 'ให้ทุก 4-6 ชั่วโมง',
   },
-];
+] as const satisfies readonly Drug[];
 
-// Group drugs by category for the gallery view.
-export const drugsByCategory = drugList.reduce((acc, drug) => {
-  if (!acc[drug.category]) acc[drug.category] = [];
-  acc[drug.category].push(drug);
-  return acc;
-}, {});
+export const drugsByCategory: Readonly<Record<string, readonly Drug[]>> =
+  drugList.reduce<Record<string, Drug[]>>((acc, drug) => {
+    const category: string = drug.category;
+    const existing = acc[category];
+    if (existing === undefined) {
+      acc[category] = [drug];
+    } else {
+      existing.push(drug);
+    }
+    return acc;
+  }, {});

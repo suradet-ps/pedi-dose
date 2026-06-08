@@ -1,7 +1,8 @@
-import { drugList } from '../data/drugData';
+import { drugList } from '@/data/drugData';
+import type { CalculatorProps } from '@/types/components';
 import { ResultCard } from './ResultCard';
 
-export const Calculator = ({
+export function Calculator({
   weight,
   setWeight,
   selectedDrugId,
@@ -12,12 +13,12 @@ export const Calculator = ({
   setManualDose,
   selectedDrug,
   result,
-}) => {
+}: CalculatorProps) {
   return (
     <section className="calc" aria-label="เครื่องคำนวณขนาดยา">
       <h1 className="calc__title">คำนวณขนาดยาน้ำเด็ก</h1>
 
-      <form className="calc__form" onSubmit={(e) => e.preventDefault()}>
+      <form className="calc__form" onSubmit={(e) => { e.preventDefault(); }}>
         <div className="field">
           <label className="field__label" htmlFor="drug-select">
             เลือกยา
@@ -27,7 +28,7 @@ export const Calculator = ({
               id="drug-select"
               className="field__input"
               value={selectedDrugId}
-              onChange={(e) => handleDrugChange(Number(e.target.value))}
+              onChange={(e) => { handleDrugChange(Number(e.target.value)); }}
             >
               {drugList.map((drug) => (
                 <option key={drug.id} value={drug.id}>
@@ -60,7 +61,7 @@ export const Calculator = ({
             <button
               type="button"
               className="field__manual-toggle"
-              onClick={() => setIsManualMode(!isManualMode)}
+              onClick={() => { setIsManualMode(!isManualMode); }}
               aria-expanded={isManualMode}
             >
               {isManualMode ? 'ปิด' : 'ระบุเอง'}
@@ -71,7 +72,7 @@ export const Calculator = ({
             id="weight"
             className="field__input"
             value={weight}
-            onChange={(e) => setWeight(e.target.value)}
+            onChange={(e) => { setWeight(e.target.value); }}
             placeholder="0.0"
             step="any"
             min="0"
@@ -89,7 +90,7 @@ export const Calculator = ({
               id="manual-dose"
               className="field__input"
               value={manualDose}
-              onChange={(e) => setManualDose(e.target.value)}
+              onChange={(e) => { setManualDose(e.target.value); }}
               placeholder={`${selectedDrug.minDosePerKg} - ${selectedDrug.maxDosePerKg}`}
               step="any"
               min="0"
@@ -102,4 +103,4 @@ export const Calculator = ({
       </form>
     </section>
   );
-};
+}

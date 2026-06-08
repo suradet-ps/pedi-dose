@@ -6,10 +6,10 @@ import './styles/base.css';
 import './styles/app.css';
 
 import ErrorBoundary from './components/ErrorBoundary';
-import App from './App.jsx';
+import App from './App';
 
-const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-if (metaThemeColor) {
+const metaThemeColor = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+if (metaThemeColor !== null) {
   const mq = window.matchMedia('(prefers-color-scheme: dark)');
   const updateThemeColor = () => {
     metaThemeColor.content = mq.matches ? '#171a20' : '#ffffff';
@@ -18,7 +18,12 @@ if (metaThemeColor) {
   mq.addEventListener('change', updateThemeColor);
 }
 
-createRoot(document.getElementById('root')).render(
+const rootElement = document.getElementById('root');
+if (rootElement === null) {
+  throw new Error('Root element not found');
+}
+
+createRoot(rootElement).render(
   <StrictMode>
     <ErrorBoundary>
       <App />

@@ -3,7 +3,7 @@ import { Calculator } from './components/Calculator';
 import { Footer } from './components/Footer';
 import { useDoseCalculator } from './hooks/useDoseCalculator';
 
-function App() {
+export default function App() {
   const {
     weight,
     setWeight,
@@ -39,5 +39,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
