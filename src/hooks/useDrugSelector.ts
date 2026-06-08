@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { drugList } from '@/data/drugData';
 import type { Drug } from '@/types/drug';
 
-const STORAGE_KEY = 'peddi-dose:lastDrugId';
+const STORAGE_KEY = 'pedi-dose:lastDrugId';
 
 export interface UseDrugSelectorResult {
   selectedDrugId: number;

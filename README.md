@@ -3,13 +3,13 @@
 > Pediatric dose calculator for healthcare professionals — fast, accurate, mobile-first.
 
 <p align="center">
-  <a href="https://github.com/suradet-ps/peddi-dose/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/suradet-ps/peddi-dose?style=for-the-badge" alt="License">
+  <a href="https://github.com/suradet-ps/pedi-dose/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/suradet-ps/pedi-dose?style=for-the-badge" alt="License">
   </a>
-  <a href="https://github.com/suradet-ps/peddi-dose/issues">
-    <img src="https://img.shields.io/github/issues/suradet-ps/peddi-dose?style=for-the-badge" alt="Issues">
+  <a href="https://github.com/suradet-ps/pedi-dose/issues">
+    <img src="https://img.shields.io/github/issues/suradet-ps/pedi-dose?style=for-the-badge" alt="Issues">
   </a>
-  <img src="https://img.shields.io/github/stars/suradet-ps/peddi-dose?style=for-the-badge" alt="Stars">
+  <img src="https://img.shields.io/github/stars/suradet-ps/pedi-dose?style=for-the-badge" alt="Stars">
   <img src="https://img.shields.io/badge/TypeScript-6+-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript">
   <img src="https://img.shields.io/badge/package_manager-bun-f9f1e1?style=for-the-badge&logo=bun" alt="Bun">
 </p>
@@ -57,8 +57,8 @@
 ### Install
 
 ```bash
-git clone https://github.com/suradet-ps/peddi-dose.git
-cd peddi-dose
+git clone https://github.com/suradet-ps/pedi-dose.git
+cd pedi-dose
 bun install
 ```
 
@@ -90,7 +90,7 @@ bun run format     # Prettier
 ## Project Structure
 
 ```
-peddi-dose/
+pedi-dose/
 ├── public/                        # Static assets (icons)
 ├── src/
 │   ├── components/                # React components
@@ -167,7 +167,7 @@ This project prioritizes strict type safety:
 
 The app is deployed via **Vercel** with automatic deploys on every push to `main`.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsuradet-ps%2Fpeddi-dose)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsuradet-ps%2Fpedi-dose)
 
 ### Manual Vercel CLI
 
