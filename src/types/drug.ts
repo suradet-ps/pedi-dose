@@ -2,6 +2,7 @@ export type DrugCategory =
   | 'Antibiotic'
   | 'Antihistamine'
   | 'Antiemetic'
+  | 'Bronchodilator'
   | 'Mucolytic'
   | 'Antipyretic';
 

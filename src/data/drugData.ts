@@ -141,6 +141,20 @@ export const drugList = [
     maxDailyDose: '60 mg/kg/day',
     notes: 'ให้ทุก 4-6 ชั่วโมง',
   },
+  {
+    id: 11,
+    name: 'Salbutamol',
+    brand: 'Ventolin',
+    concentration: 2,
+    volume: 5,
+    minDosePerKg: 0.1,
+    maxDosePerKg: 0.2,
+    category: 'Bronchodilator' as const,
+    timing: 'after' as const,
+    timesPerDay: 3,
+    maxDailyDose: '0.6 mg/kg/day',
+    notes: 'รับประทานหลังอาหาร วันละ 3 ครั้ง',
+  },
 ] as const satisfies readonly Drug[];
 
 export const drugsByCategory: Readonly<Record<string, readonly Drug[]>> =
