@@ -228,6 +228,27 @@
 }
 
 /* ============================================================
+ * Skip-to-content
+ * ============================================================ */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--sp-3);
+  z-index: 100;
+  padding: var(--sp-2) var(--sp-3);
+  background-color: var(--color-electric-blue);
+  color: #ffffff;
+  font-size: var(--fs-label);
+  font-weight: var(--fw-medium);
+  border-radius: var(--r);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: var(--sp-2);
+}
+
+/* ============================================================
  * Error boundary
  * ============================================================ */
 .error-boundary {

@@ -19,8 +19,9 @@ function App() {
 
   return (
     <div className="app">
+      <a href="#main-content" className="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
       <Header />
-      <main className="app__main">
+      <main className="app__main" id="main-content">
         <Calculator
           weight={weight}
           setWeight={setWeight}
