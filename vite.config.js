@@ -1,46 +1,40 @@
 // vite.config.js
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import { VitePWA } from 'vite-plugin-pwa'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: 'autoUpdate', // อัปเดตแอปให้อัตโนมัติเมื่อมีเวอร์ชันใหม่
+      registerType: 'autoUpdate',
       workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg}'] // บอกให้ PWA เก็บไฟล์เหล่านี้ไว้ใช้ออฟไลน์
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
       },
       manifest: {
-        // --- แก้ไขข้อมูลตรงนี้ ---
         name: 'Pedi-Dose Calc by Sabot Hospital',
         short_name: 'Pedi-Dose',
         description: 'โปรแกรมคำนวณขนาดยาน้ำเด็ก โดยกลุ่มงานเภสัชกรรม โรงพยาบาลสระโบสถ์',
-        theme_color: '#ffffff', // สีพื้นหลังของ Splash Screen
-        background_color: '#ffffff', // สีของ status bar บนมือถือ
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
         display: 'standalone',
         scope: '/',
         start_url: '/',
         orientation: 'portrait',
         icons: [
-          {
-            src: 'icon-192x192.png', // ชื่อไฟล์ icon
-            sizes: '192x192',
-            type: 'image/png'
-          },
-          {
-            src: 'icon-512x512.png', // ชื่อไฟล์ icon
-            sizes: '512x512',
-            type: 'image/png'
-          },
-          {
-            src: 'icon-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-            purpose: 'any maskable' // สำหรับแสดงผลบน Android ให้สวยงาม
-          }
-        ]
-      }
-    })
+          { src: 'icon-192x192.png', sizes: '192x192', type: 'image/png' },
+          { src: 'icon-512x512.png', sizes: '512x512', type: 'image/png' },
+          { src: 'icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+        ],
+      },
+    }),
   ],
-})
+  server: {
+    host: true,
+    port: 5173,
+  },
+  build: {
+    target: 'es2020',
+    sourcemap: false,
+  },
+});
