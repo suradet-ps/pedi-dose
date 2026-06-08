@@ -222,13 +222,8 @@
   line-height: 1.4;
 }
 
-.app-footer__disclaimer {
-  color: var(--text-placeholder);
-  margin-top: var(--sp-1);
-}
-
 /* ============================================================
- * Skip-to-content
+ * Error boundary
  * ============================================================ */
 .skip-link {
   position: absolute;
