@@ -98,7 +98,7 @@ export const Calculator = ({
           </div>
         )}
 
-        <ResultCard result={result} />
+        <ResultCard result={result} isManualMode={isManualMode} />
       </form>
     </section>
   );

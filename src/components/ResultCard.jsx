@@ -1,8 +1,11 @@
 import { formatDoseRange, formatMgRange } from '../utils/doseMath';
 
-export const ResultCard = ({ result }) => {
+export const ResultCard = ({ result, isManualMode }) => {
   if (!result) {
-    return <p className="result__empty">กรอกน้ำหนักเพื่อคำนวณ</p>;
+    const message = isManualMode
+      ? 'กรุณากรอกขนาดยา (mg/kg/dose)'
+      : 'กรุณากรอกน้ำหนัก';
+    return <p className="result__empty">{message}</p>;
   }
 
   const isAuto = result.mode === 'auto';
