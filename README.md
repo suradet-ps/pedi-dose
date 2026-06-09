@@ -2,13 +2,13 @@
 
 > Pediatric dose calculator for healthcare professionals — fast, accurate, mobile-first.
 
-[![License](https://img.shields.io/github/license/suradet-ps/pedi-dose?style=for-the-badge)](https://github.com/suradet-ps/pedi-dose/blob/main/LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)](https://github.com/suradet-ps/pedi-dose)
-[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
-[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite)](https://vite.dev/)
-[![Bun](https://img.shields.io/badge/Bun-1.3.14-f9f1e1?style=for-the-badge&logo=bun)](https://bun.sh/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](https://github.com/suradet-ps/pedi-dose/pulls)
+[![License](https://img.shields.io/github/license/suradet-ps/pedi-dose?color=blue&logo=opensourceinitiative&logoColor=ffffff)](https://github.com/suradet-ps/pedi-dose/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue?logo=git&logoColor=ffffff)](https://github.com/suradet-ps/pedi-dose)
+[![TypeScript](https://img.shields.io/badge/TypeScript-%5E6-3178C6?logo=typescript&logoColor=ffffff)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-%5E19-61DAFB?logo=react&logoColor=ffffff)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-%5E8-646CFF?logo=vite&logoColor=ffffff)](https://vite.dev/)
+[![Bun](https://img.shields.io/badge/Bun-1.3.14-f9f1e1?logo=bun&logoColor=ffffff)](https://bun.sh/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?logo=github&logoColor=ffffff)](https://github.com/suradet-ps/pedi-dose/pulls)
 
 ---
 
