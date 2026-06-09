@@ -2,17 +2,13 @@
 
 > Pediatric dose calculator for healthcare professionals — fast, accurate, mobile-first.
 
-<p align="center">
-  <a href="https://github.com/suradet-ps/pedi-dose/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/suradet-ps/pedi-dose?style=for-the-badge" alt="License">
-  </a>
-  <a href="https://github.com/suradet-ps/pedi-dose/issues">
-    <img src="https://img.shields.io/github/issues/suradet-ps/pedi-dose?style=for-the-badge" alt="Issues">
-  </a>
-  <img src="https://img.shields.io/github/stars/suradet-ps/pedi-dose?style=for-the-badge" alt="Stars">
-  <img src="https://img.shields.io/badge/TypeScript-6+-3178C6?style=for-the-badge&logo=typescript" alt="TypeScript">
-  <img src="https://img.shields.io/badge/package_manager-bun-f9f1e1?style=for-the-badge&logo=bun" alt="Bun">
-</p>
+[![License](https://img.shields.io/github/license/suradet-ps/pedi-dose?style=for-the-badge)](https://github.com/suradet-ps/pedi-dose/blob/main/LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue?style=for-the-badge)](https://github.com/suradet-ps/pedi-dose)
+[![TypeScript](https://img.shields.io/badge/TypeScript-6-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?style=for-the-badge&logo=vite)](https://vite.dev/)
+[![Bun](https://img.shields.io/badge/Bun-1.3.14-f9f1e1?style=for-the-badge&logo=bun)](https://bun.sh/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=for-the-badge)](https://github.com/suradet-ps/pedi-dose/pulls)
 
 ---
 
