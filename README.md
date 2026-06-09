@@ -48,7 +48,7 @@
 
 ### Prerequisites
 
-- [Bun](https://bun.sh/) v1.1+ (or npm as a fallback)
+- [Bun](https://bun.sh/) v1.1+
 
 ### Install
 
@@ -168,7 +168,7 @@ The app is deployed via **Vercel** with automatic deploys on every push to `main
 ### Manual Vercel CLI
 
 ```bash
-npm i -g vercel
+bun install -g vercel
 bun run build
 vercel --prod
 ```
